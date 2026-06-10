@@ -1,6 +1,6 @@
 import functools
 
-def C_to_F(func):
+def c_to_f(func):
     @functools.wraps(func)
     def wrapper(C, *args, **kwargs):
         F = C * 9/5 + 32
@@ -8,8 +8,8 @@ def C_to_F(func):
         return func(F, *args, **kwargs)
     return wrapper
 
-@C_to_F
-def Temperature(temp):
+@c_to_f
+def temperature(temp):
     print(f"Processing temperature: {temp}°F")
 
-Temperature(30)
+temperature(30)

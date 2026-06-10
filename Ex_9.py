@@ -1,6 +1,6 @@
 import functools
 
-def Singleton(cls):
+def singleton(cls):
     instances = {}  
     @functools.wraps(cls)
     def get_instance(*args, **kwargs):
@@ -9,7 +9,7 @@ def Singleton(cls):
         return instances[cls]
     return get_instance
 
-@Singleton
+@singleton
 class DatabaseConnection:
     pass
 

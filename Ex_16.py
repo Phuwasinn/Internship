@@ -1,8 +1,8 @@
 def append_docstring(info):
-    def Decorator(func):
+    def decorator(func):
         func.__doc__ = (func.__doc__ or "") + f"\n{info}"
         return func
-    return Decorator
+    return decorator
 
 @append_docstring("Added by decorator: Do not modify manually.")
 def my_func():

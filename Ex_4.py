@@ -1,6 +1,6 @@
 import functools
 
-def Memoize(func):
+def memoize(func):
     cache = {}
     @functools.wraps(func)
     def wrapper(*args):
@@ -12,7 +12,7 @@ def Memoize(func):
         return cache[args]
     return wrapper
 
-@Memoize
+@memoize
 def fibonacci(n):
     if n <= 1:
         return n

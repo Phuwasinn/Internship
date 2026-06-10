@@ -1,7 +1,7 @@
 import functools
 
-def Retry(n):
-    def Decorator(func):
+def retry(n):
+    def decorator(func):
         @functools.wraps(func)
         def wrapper(*args, **kwargs):
             for attempt in range(1, n + 1):
@@ -12,10 +12,10 @@ def Retry(n):
 
             print("I'm tired")
         return wrapper
-    return Decorator
+    return decorator
 
-@Retry(n=3)
-def Unstable_connection():
+@retry(n=3)
+def unstable_connection():
     raise ConnectionError("Connection failed")
 
-Unstable_connection()
+unstable_connection()

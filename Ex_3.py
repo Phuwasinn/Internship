@@ -1,7 +1,7 @@
 import functools
 
-def Types_Validate(*expected_type):
-    def Decorator(func):
+def types_validate(*expected_type):
+    def decorator(func):
         @functools.wraps(func)  
         def wrapper(*args, **kwargs):
             for i, (arg, expected) in enumerate(zip(args, expected_type)):
@@ -12,9 +12,9 @@ def Types_Validate(*expected_type):
                     )
             return func(*args, **kwargs)
         return wrapper
-    return Decorator
+    return decorator
 
-@Types_Validate(int, int)
+@types_validate(int, int)
 def add(a, b):
     return a + b
 

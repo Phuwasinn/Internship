@@ -1,6 +1,6 @@
 import functools, os
 
-def Debug(func):
+def debug(func):
     @functools.wraps(func)
     def wrapper(*args, **kwargs):
         if os.environ.get("DEBUG") == "True":
@@ -12,7 +12,7 @@ def Debug(func):
         return result
     return wrapper
 
-@Debug
+@debug
 def compute(x, y):
     return x + y
 

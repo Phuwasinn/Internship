@@ -1,7 +1,7 @@
 import functools
 import time
 
-def Timer(func):
+def timer(func):
     @functools.wraps(func)
     def wrapper(*args, **kwargs):
         start = time.time()
@@ -11,16 +11,16 @@ def Timer(func):
         return result
     return wrapper
 
-def Logger(func):
+def logger(func):
     @functools.wraps(func)
     def wrapper(*args, **kwargs):
         print(f"Log: Args: {args}, Kwargs: {kwargs}")
         return func(*args, **kwargs)
     return wrapper
 
-@Timer
-@Logger
-def Chained(x,y):
+@timer
+@logger
+def chained(x,y):
     time.sleep(0.5)
     return x + y
-print("Result:", Chained(3, 4))
+print("Result:", chained(3, 4))

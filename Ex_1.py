@@ -1,6 +1,6 @@
 import time, functools
 
-def Timer(func):
+def timer(func):
     @functools.wraps(func)
     def wrapper(*args, **kwargs):
         start = time.time()
@@ -11,7 +11,7 @@ def Timer(func):
         return result
     return wrapper
 
-@Timer
+@timer
 def slow_function():
     time.sleep(1)
 

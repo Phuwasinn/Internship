@@ -1,7 +1,7 @@
 import functools
 
-def Exception_Wrapper(default = 0):
-    def Decorator(func):
+def exception_wrapper(default = 0):
+    def decorator(func):
         @functools.wraps(func)
         def wrapper (*args, **kwargs):
             try:
@@ -10,9 +10,9 @@ def Exception_Wrapper(default = 0):
                 print(f"Error: {e}")
                 return default
         return wrapper
-    return Decorator
+    return decorator
 
-@Exception_Wrapper(default=None)
+@exception_wrapper(default=None)
 def divide(a, b):
     return a / b
 

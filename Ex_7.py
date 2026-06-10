@@ -1,8 +1,8 @@
 import functools, time
 
-def Rate_limiter(Max_calls, Window_secs):
+def rate_limiter(Max_calls, Window_secs):
     calls = []
-    def Decorator(func):
+    def decorator(func):
         @functools.wraps(func)
         def wrapper(*args, **kwargs):
             now = time.time()
@@ -15,11 +15,11 @@ def Rate_limiter(Max_calls, Window_secs):
             calls.append(now)
             return func(*args, **kwargs)
         return wrapper
-    return Decorator
+    return decorator
 
-@Rate_limiter(Max_calls = 2, Window_secs = 1)
-def API_call():
+@rate_limiter(Max_calls = 2, Window_secs = 1)
+def api_call():
     print("API called successfully")
 
 for _ in range(10):
-    API_call()
+    api_call()

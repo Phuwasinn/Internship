@@ -1,6 +1,6 @@
 import functools
 
-def Double(func):
+def double(func):
     @functools.wraps(func)
     def wrapper(*args, **kwargs):
         result = func(*args, **kwargs)
@@ -9,8 +9,8 @@ def Double(func):
         return result
     return wrapper
 
-@Double
-def Val():
+@double
+def val():
     return 5
 
-print(Val())
+print(val())

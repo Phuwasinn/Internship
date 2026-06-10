@@ -1,6 +1,6 @@
 import functools, time
 
-def Delay(secs):
+def delay(secs):
     def decorator(func):
         @functools.wraps(func)
         def wrapper(*args, **kwargs):
@@ -11,8 +11,8 @@ def Delay(secs):
         return wrapper
     return decorator
 
-@Delay(secs = 5)
-def Hello():
+@delay(secs = 5)
+def hello():
     print("Hello!")
 
-Hello()
+hello()
