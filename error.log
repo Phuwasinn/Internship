@@ -1,0 +1,5 @@
+2026-06-11 16:04:27,458 - ERROR - Division by zero occurred
+Traceback (most recent call last):
+  File "/Users/phuwasinkriangdechachai/Desktop/Internship/Day_4/Ex_9.py", line 10, in <module>
+    result = 100 / 0
+ZeroDivisionError: division by zero

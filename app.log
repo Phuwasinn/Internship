@@ -1,0 +1,6 @@
+2026-06-11 15:47:28,207 - DEBUG - App started
+2026-06-11 15:47:28,207 - INFO - User logged in
+2026-06-11 15:47:28,207 - INFO - Fetched 100 records from DB
+2026-06-11 15:47:28,207 - WARNING - Memory usage at 80%
+2026-06-11 15:47:28,207 - ERROR - Failed to send email
+2026-06-11 15:47:28,207 - CRITICAL - Server is down
