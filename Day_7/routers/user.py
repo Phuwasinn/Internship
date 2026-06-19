@@ -3,6 +3,7 @@ from sqlalchemy.orm import Session
 from ..models import User
 from ..schemas import UserCreate, UserUpdate
 from ..dependencies import get_db
+from ..auth import hash_password
 
 router = APIRouter(prefix="/users", tags=["Users"])
 
@@ -12,7 +13,8 @@ def create_user(data: UserCreate, db: Session = Depends(get_db)):
     user = User(
         username = data.username,
         email = data.email,
-        password = data.password
+        password = hash_password(data.password),
+        role = data.role
     )
     db.add(user)    
     db.commit()      

@@ -5,6 +5,7 @@ class UserCreate(BaseModel):
     username: str
     email: str
     password: str
+    role: str = "user"
 
 class UserUpdate(BaseModel):
     username: Optional[str] = None
@@ -17,3 +18,10 @@ class UserResponse(BaseModel):
 
     class Config:
         from_attributes = True
+        
+class PostCreate(BaseModel):
+    title: str
+    content: str
+    category: str = "general"
+    published: bool = False
+    author_id: int
