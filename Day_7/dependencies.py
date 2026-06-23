@@ -17,7 +17,7 @@ def get_db() -> Generator[Session, None, None]:
 
 #Ex.10        
 oauth2_scheme = OAuth2PasswordBearer(
-    tokenUrl = "login"
+    tokenUrl = "/auth/login"
 )
 
 def get_current_user(
